@@ -11,7 +11,7 @@ st.cache
 def load_data():
     # Unzip the file
     with zipfile.ZipFile("game_csv.zip", "y") as zip_ref:
-        zip_ref.extractall"game_data")
+        zip_ref.extractall("game_data")
     # Check if the folder exists
     if os.path.exists("survey_results_public"):
         # Access the folder and load the CSV file into a DataFrame
