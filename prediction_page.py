@@ -6,6 +6,18 @@ import pandas as pd
 def load_model():
     with open('saved_model_v2.pkl', 'rb') as file:
         data_loaded = pickle.load(file)
+
+        if 'missing_go_to_left' in data_loaded['model'].tree.getstate()['nodes'].dtype.names:
+            # Transform the model node array to the expected dtype
+            nodes = data_loaded['model'].tree.getstate()['nodes']
+            expected_dtype = [
+                ('left_child', '<i8'), ('right_child', '<i8'), ('feature', '<i8'),
+                ('threshold', '<f8'), ('impurity', '<f8'), ('n_node_samples', '<i8'),
+                ('weighted_n_node_samples', '<f8')
+            ]
+            nodes = nodes.astype(expected_dtype)
+            data_loaded['model'].tree.setstate({'nodes': nodes})
+
         return data_loaded
 
 def show_predict_page():
