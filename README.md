@@ -63,5 +63,8 @@ To run this project locally, follow these steps:
 ## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request.
 
+## Acknowledgements
+This project was developed as part of the coursework at Concordia University, Montreal. I would like to thank my professors and peers for their guidance and support.
+
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. 
